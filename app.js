@@ -1,5 +1,5 @@
 import express from 'express'
-import { buscarHoteles, crearReserva, cancelarReserva, getServices, getServiceById, añadirValoracion } from './controller.js'
+import { buscarHoteles, crearReserva, cancelarReserva, getServices, getServiceById, añadirValoracion } from './controllers/controller.js'
 
 const app = express()
 app.use(express.json()) // Para poder recibir JSON en las peticiones HTTP
