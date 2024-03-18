@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-03-2024 a las 00:33:03
+-- Tiempo de generación: 18-03-2024 a las 10:29:18
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -157,6 +157,22 @@ CREATE TABLE `hotel_comentarios` (
   `comentario` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `hotel_comentarios`
+--
+
+INSERT INTO `hotel_comentarios` (`id`, `hotel_id`, `huesped_id`, `comentario`) VALUES
+(1, 2, 4, 'El personal que atiende este hotel en todos sus departamentos sabe con precision la manera de atender bien a un huesped. '),
+(2, 5, 8, 'Es un buen Hotel personal muy amable y servicial .\r\nEl único inconveniente es el acceso al wifi , ya que el codigo hay que cambiarlo con frecuencia .'),
+(3, 3, 5, 'Nos ha gustado mucho. La habitacióntan muy bien, como pensábamos, y el trato de recepción y resto del personal exquisito.'),
+(4, 2, 10, 'Sitio, comodo y cercano a los sitios turisticos.\r\nRecomendado pata estancias cortas y en familia'),
+(5, 1, 12, 'En relación calidad precio esta muy bien y todo a la perfección. Habitaciones amplias, luminosas y muy comodas. '),
+(6, 8, 2, 'Nos hospedamos durante una semana en el hotel con motivo de negocios. Las habitaciones, si bien algo pequeñas pero siempre están limpias en todo momento'),
+(7, 10, 11, 'Hotel muy tranquilo, acogedor y moderno, las habitaciones limpias y la cama muy cómoda, el desayuno variado y de calidad'),
+(8, 4, 1, 'El hotel y su ubicación están muy bien .La habitación está muy limpia , desayuno variado y de calidad , la atención al cliente buena .'),
+(9, 6, 3, 'Es un hotel bastante moderno, cómodo y muy limpio. '),
+(10, 7, 6, ' Las habitaciones son amplias ,el baño muy cómodo . Todos los servicios ofrecidos son impecables');
+
 -- --------------------------------------------------------
 
 --
@@ -168,6 +184,22 @@ CREATE TABLE `hotel_habitaciones` (
   `hotel_id` int(11) NOT NULL,
   `habitacion_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `hotel_habitaciones`
+--
+
+INSERT INTO `hotel_habitaciones` (`id`, `hotel_id`, `habitacion_id`) VALUES
+(1, 2, 2),
+(2, 3, 3),
+(3, 4, 1),
+(4, 5, 1),
+(5, 6, 3),
+(6, 8, 2),
+(7, 10, 2),
+(8, 1, 2),
+(9, 9, 3),
+(10, 7, 3);
 
 -- --------------------------------------------------------
 
@@ -188,7 +220,19 @@ CREATE TABLE `hotel_servicios` (
 INSERT INTO `hotel_servicios` (`id`, `hotel_id`, `servicio_id`) VALUES
 (1, 1, 3),
 (2, 1, 2),
-(3, 1, 7);
+(3, 1, 7),
+(4, 2, 3),
+(5, 2, 7),
+(6, 4, 4),
+(7, 4, 5),
+(8, 5, 7),
+(9, 5, 4),
+(10, 7, 1),
+(11, 8, 3),
+(12, 9, 5),
+(13, 3, 4),
+(14, 3, 2),
+(15, 3, 6);
 
 -- --------------------------------------------------------
 
@@ -202,6 +246,24 @@ CREATE TABLE `hotel_valoracion` (
   `valoracion` int(2) NOT NULL,
   `huesped_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `hotel_valoracion`
+--
+
+INSERT INTO `hotel_valoracion` (`id`, `hotel_id`, `valoracion`, `huesped_id`) VALUES
+(1, 2, 10, 2),
+(2, 4, 7, 3),
+(3, 5, 8, 4),
+(4, 1, 9, 5),
+(5, 6, 7, 6),
+(6, 7, 8, 7),
+(7, 8, 9, 8),
+(8, 9, 10, 9),
+(9, 10, 10, 1),
+(10, 2, 8, 12),
+(11, 3, 7, 11),
+(12, 5, 9, 3);
 
 -- --------------------------------------------------------
 
@@ -222,7 +284,17 @@ CREATE TABLE `huespedes` (
 
 INSERT INTO `huespedes` (`id`, `nombre`, `telefono`, `correo`) VALUES
 (1, 'Juan Perez', '555699999', 'juanperez@gmail.com'),
-(2, 'Pedro Martinez', '55563256', 'pedrom@gmail.com');
+(2, 'Pedro Martinez', '55563256', 'pedrom@gmail.com'),
+(3, 'Carmen Maria Villanueva', '798097320', 'f1p3laf3@gmail.com'),
+(4, 'Valeria Pastor', '732997866', 'crl1yp9su@msn.com'),
+(5, 'Agustina Rubio', '707155528', 'y3y6n55a@aim.com'),
+(6, 'Alexandre Bautista', '602670562', 'b3zml6q6@gmail.com'),
+(7, 'Jonathan Royo', '628207381', 'an47n2rdm@unforgettable.com'),
+(8, 'Luis Antonio Mendoza', '665971773', 'xnna9ts@unforgettable.com'),
+(9, 'Trinidad Del Rio', '785191437', 've3ja2uw@witty.com'),
+(10, 'Ruben Arce', '607559470', 'jimnph9s@journalism.com'),
+(11, 'Elsa Polo', '750401177', 'dstiv9o2b@talk21.com'),
+(12, 'Jorge Vaquero', '671761893', 'urb5eg9rh@blu.it');
 
 -- --------------------------------------------------------
 
@@ -240,6 +312,22 @@ CREATE TABLE `reservas` (
   `habitacion_id` int(11) NOT NULL,
   `estado_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reservas`
+--
+
+INSERT INTO `reservas` (`id`, `huesped_id`, `hotel_id`, `fecha_ingreso`, `fecha_salida`, `cantidad_huespedes`, `habitacion_id`, `estado_id`) VALUES
+(1, 3, 7, '2024-03-03', '2024-03-30', 3, 2, 3),
+(2, 7, 3, '2024-02-02', '2024-03-02', 1, 1, 1),
+(3, 4, 6, '2024-03-24', '2024-04-14', 5, 3, 2),
+(4, 5, 1, '2024-02-12', '2024-05-24', 1, 1, 1),
+(5, 8, 2, '2024-04-11', '2024-04-20', 8, 3, 3),
+(6, 10, 4, '2024-03-28', '2024-04-01', 3, 2, 2),
+(7, 2, 5, '2024-04-25', '2024-04-26', 1, 1, 2),
+(8, 1, 8, '2024-08-01', '2024-08-12', 2, 1, 3),
+(9, 6, 9, '2024-05-12', '2024-05-19', 5, 3, 2),
+(10, 9, 10, '2024-06-21', '2024-07-01', 3, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -395,31 +483,31 @@ ALTER TABLE `hoteles_ciudad`
 -- AUTO_INCREMENT de la tabla `hotel_habitaciones`
 --
 ALTER TABLE `hotel_habitaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `hotel_servicios`
 --
 ALTER TABLE `hotel_servicios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `hotel_valoracion`
 --
 ALTER TABLE `hotel_valoracion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `huespedes`
 --
 ALTER TABLE `huespedes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `servicios`
